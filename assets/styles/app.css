@@ -1,3 +1,72 @@
-body {
-    background-color: skyblue;
+*{
+    list-style: none;
+}
+.testUl {
+    
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    gap: 2rem;
+}
+
+.testUl li {
+    height: 3rem;
+    width: 6rem;
+}
+
+.testUl li a {
+    border: #ffc107 solid 2px;
+    padding: 5px 10px 5px 10px;
+    color: #ffc107;
+    font-size: 25px;
+    text-decoration: none;
+    height: 100%;
+    width: 100%;
+    transition: 5ms;
+    border-radius: 10px;
+}
+
+.testUl li a:hover {
+    border: black solid 2px;
+    background: #ffc107;
+    color: #000000;
+}
+.imgItem{
+    height:25rem; 
+    width:25rem;
+    cursor: pointer;
+}
+.imgItemShield {
+    animation: rotate 3s infinite;
+}
+.imgItemSword {
+    animation: shake 0.3s infinite;
+}
+a{
+    color: #ffc107;
+    transition: 0.5s;
+}
+a:hover{
+    color: #000000;
+}
+@keyframes rotate{
+    0%{
+        transform: rotateY(0deg);
+    }
+    100%{
+        transform: rotateY(360deg);
+    }
+}
+@keyframes shake{
+    0%{
+        transform: rotate(0deg);
+    }
+    50%{
+        transform: rotate(5deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
 }

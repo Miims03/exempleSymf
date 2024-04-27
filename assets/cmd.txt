@@ -1,0 +1,42 @@
+#pour lister les versions de php disponnible et voir laquelle symfony utilise
+  symfony local:php:list
+
+#pour changer de version de php de liste disponnible
+  echo 8.*.* > .php-version
+
+#création projet
+  symfony new [name] --webapp
+
+#pour lancer le serveur en background
+  symfony server:start -d (ou le raccourci symfony serve -d)
+
+#pour ouvrir le navigateur directement avec votre serveur une fois qu'il était lancé
+  symfony open:local
+
+#pour arreter le serveur du projet dans lequelle vous travaillez 
+  symfony server:stop 
+
+#pour tous les arreter vous faites 
+  symfony server:stop --all
+
+#pour connaitre la liste des serveurs lancer
+  symfony server:list
+
+#pour rendre votre site en HTTPS 
+  symfony server:ca:install (accepter le certificat)
+  symfony serve -d
+
+#pour créer un controller en symfony avec comme nom HomeController
+  symfony console make:controller [name]
+
+#créer une DB en fonction de ce qu'on a mis dans .env
+  symfony console doctrine:database:create
+
+#créer une entité
+  symfony console make:entity
+
+#pour creer la migration
+  symfony console make:migration
+
+#pour faire la migration en bd aprees avoir modifier votre fichier
+  symfony console doctrine:migrations:migrate

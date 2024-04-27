@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+Item : {{itemName}}
+{% endblock %}
+
+{% block body %}
+
+    <h1 style='font-size:60px;'>
+        <strong>
+            {{ itemName | capitalize }} 
+        </strong>
+    </h1>   
+
+    {% if itemName == 'sword' %}
+            <img class='imgItem imgItemSword' class='limg' 
+            src="{{ asset('img/sword.png') }}">
+    {% endif %}
+    {% if itemName == 'shield' %}
+            <img class='imgItem imgItemShield' class='limg' 
+            src="{{ asset('img/shield.png') }}">
+    {% endif %}
+
+{% endblock %}

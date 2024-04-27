@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+{# #{{ recipe.id ~" "~recipe.slug}} #}
+{% endblock %}
+    
+{% block body %}
+<h1>Créer un recette</h1>
+    {{ form_start(gazouz) }}
+    <div class='d-flex gap-2'>
+        {{ form_row(gazouz.title)}}
+        {{ form_row(gazouz.duration)}}
+    </div>
+    {{ form_row(gazouz.slug)}}
+    {{ form_row(gazouz.content)}}
+    {{ form_row(gazouz.save,{'label':'Créer'}) }}
+    {{ form_end(gazouz)}}
+{% endblock %}

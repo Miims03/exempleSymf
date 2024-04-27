@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+#{{ recipe.id }} {{ recipe.slug }}
+{% endblock %}
+
+{% block body %}
+    
+    <h1 style='font-size:60px;'>Titre : {{ recipe.title }}</h1> 
+    <h1 style='font-size:35px;'>Id : {{ recipe.id }}</h1> 
+    <h1 style='font-size:35px;'>Duartion : {{ recipe.duration  }} min</h1> 
+    <h1 style='font-size:35px;'>Content : {{ recipe.content | nl2br }}</h1>
+    <a href={{ path('app_recipe_edit' , {id:recipe.id})}}>Edit</a>
+{% endblock %}

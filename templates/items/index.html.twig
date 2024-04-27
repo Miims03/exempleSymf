@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+Tout les Items
+{% endblock %}
+
+{% block body %}
+    <h1 style='font-size:60px;'>Les Items</h1>
+    <ul class='testUl'>
+        <li>
+            <a href={{ path('items.show', {id: 01, itemName : 'sword'}) }}>Sword</a>
+        </li>
+        <li>
+            <a href={{ path('items.show', {id: 02, itemName : 'shield'}) }}>Shield</a>
+        </li>
+    </ul>
+{% endblock %}
