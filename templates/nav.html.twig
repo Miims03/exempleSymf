@@ -22,6 +22,9 @@
                         <a class="dropdown-item {{ app.current_route == 'app_recipe_index' ? 'active' : ''}} " href="{{ path('app_recipe_index')}}">Liste de Recettes</a>
                       </li>
                       <li><hr class="dropdown-divider"></li>
+                      <li>
+                        <a class="dropdown-item {{ app.current_route == 'app_recipe_create' ? 'active' : ''}} " href="{{ path('app_recipe_create')}}">Créer une Recette</a>
+                      </li>
                     </ul>
                   </li>
                 </ul>
