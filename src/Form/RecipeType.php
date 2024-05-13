@@ -35,16 +35,15 @@ class RecipeType extends AbstractType
             ->add('save', SubmitType::class,[
                 'label' => 'Modifier'
             ])
-            ->addEventListener(FormEvents::PRE_SUBMIT,$this->autoSlug(...))
-        ;
+            ->addEventListener(FormEvents::PRE_SUBMIT,$this->autoSlug(...));
     }
 
     public function autoSlug(PreSubmitEvent $event): void{
         $data = $event->getData();
-        if (empty($data['slug'])){
-            $slugger = new AsciiSlugger();
-            $data['slug'] = strtolower($slugger->slug($data['title']));
-            // $data['slug'] = join(str_replace(' ','-',str_split(strtolower($data['title']))));
+        $slugger = new AsciiSlugger();
+        $title = strtolower($slugger->slug($data['title']));
+        if (empty($data['slug']) || $data['slug'] != $title){
+            $data['slug'] = $title;
             $event->setData($data);
         }
     }

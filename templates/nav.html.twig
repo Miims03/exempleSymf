@@ -14,22 +14,16 @@
                     <a class="nav-link {{ app.current_route starts with 'items.' ? 'active' : ''}} " href="{{ path('items.index')}}">Items</a>
                   </li>
                   <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle {{ app.current_route starts with 'recette.' ? 'active' : ''}} " href="#" role="button" data-bs-toggle="dropdown" >
+                    <a class="nav-link dropdown-toggle {{ app.current_route starts with 'app_recipe_' ? 'active' : ''}} " href="#" role="button" data-bs-toggle="dropdown" >
                       Recettes
                     </a>
                     <ul class="dropdown-menu">
                       <li>
-                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item {{ app.current_route == 'app_recipe_index' ? 'active' : ''}} " href="{{ path('app_recipe_index')}}">Liste de Recettes</a>
                       </li>
                       <li><hr class="dropdown-divider"></li>
-                      <li>
-                        <a class="dropdown-item {{ app.current_route == 'recette' ? 'active' : ''}} " href="{{ path('app_recipe_index')}}">Liste de Recettes</a>
-                      </li>
                     </ul>
                   </li>
-
-
-
                 </ul>
                 <form class="d-flex" role="search">
                   <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
