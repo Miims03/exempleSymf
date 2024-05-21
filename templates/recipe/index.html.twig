@@ -3,14 +3,15 @@
 {% block title %}Hello RecipeController!{% endblock %}
 
 {% block body %}
-    <h1 align="center">Bienvenu dans la liste des Recettes</h1>
+    {% set nombre = recipes|length %}
+    <h1 align="center">Bienvenu dans la liste des Recettes ({{ nombre }})</h1>
     <div class = "container text-center">
         <div class = "row">
             {% for recipe in recipes %}
-                <div class="card max-w-sm col-4 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 my-8 mr-4 bg" data-type="post">
-                    <h2><a href={{ path('app_recipe_show', {id : recipe.id, slug : recipe.slug})}}>{{ recipe.title }} </a></h2>
+                <div class="card max-w-sm col-4 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 my-8 mr-4 bg d-flex justify-content-center align-items-center" data-type="post">
+                    <h2><a href={{ path('app_recipe_show', {id : recipe.id, slug : recipe.slug})}}>{{ recipe.title | u.truncate(20,'...',true)}} </a></h2>
                     <img src = "https://pbs.twimg.com/media/EdDUBw0WkAAQLJ1?format=jpg&name=large" width="150" height="200">
-                    <p>Submitted {{ recipe.createdAt |date }}</p> 
+                    <p>Created {{ recipe.createdAt| ago }}</p>
                 </div>        
             {% else %}
                 <p>Pas encore de recette</p>
