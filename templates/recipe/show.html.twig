@@ -8,7 +8,7 @@
     
     <h1 style='font-size:60px;'>Titre : {{ recipe.title }}</h1> 
     <h1 style='font-size:35px;'>Duartion : {{ recipe.duration  }} min</h1> 
-    <img class="rounded" style="max-width: 400px;" src="https://kelianfood.com/wp-content/uploads/2022/11/IMG_3698-1440x1646.jpg" >
+    <img class="rounded" style="max-width: 400px;" src={{recipe.imageName}} >
     <h1 style='font-size:35px;'>Content : {{ recipe.content | nl2br }}</h1>
     <p>Submitted {{ recipe.createdAt|date('d/m/Y') }}</p>
     <p>Updated {{ recipe.updatedAt|date('d/m/Y H:i') }}</p>

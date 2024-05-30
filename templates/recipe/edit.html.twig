@@ -11,12 +11,13 @@
         {{ form_row(gazouz.title)}}
         {{ form_row(gazouz.duration)}}
     </div>
-    {{ form_row(gazouz.slug)}}
+    {# {{ form_row(gazouz.slug)}} #}
     <div class="d-flex gap-2">
     {# {{ form_row(gazouz.createdAt)}} #}
     {# {{ form_row(gazouz.updatedAt)}} #}
     </div>
     {{ form_row(gazouz.content)}}
+    {{ form_row(gazouz.imageName)}}
     {{ form_row(gazouz.save) }}
     {{ form_end(gazouz)}}
 {% endblock %}

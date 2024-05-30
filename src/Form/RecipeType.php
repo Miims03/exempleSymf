@@ -31,6 +31,7 @@ class RecipeType extends AbstractType
             // ->add('updatedAt', null, [
             //     'widget' => 'single_text',
             // ])
+            ->add('imageName')
             ->add('duration')
             ->add('save', SubmitType::class,[
                 'label' => 'Modifier'

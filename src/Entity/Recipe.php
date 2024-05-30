@@ -3,11 +3,14 @@
 namespace App\Entity;
 
 use App\Repository\RecipeRepository;
+use App\Validator\InappropriateWords;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: RecipeRepository::class)]
+#[UniqueEntity('title')]
 class Recipe
 {
     #[ORM\Id]
@@ -16,9 +19,11 @@ class Recipe
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    #[Assert\NotBlank()]
+    #[Assert\NotBlank(message:'Champ vide.')]
     #[Assert\Length(min: 10, minMessage: 'Le titre doit faire au moins 10 caractères')]
     #[Assert\Length(max: 50, maxMessage: 'Le titre doit faire moins de 50 caractères')]
+    #[InappropriateWords()]
+    
     private ?string $title = null;
 
     #[ORM\Column(length: 255)]
@@ -40,6 +45,9 @@ class Recipe
     #[Assert\Positive(message:'La durée doit être positive')]
     #[Assert\LessThan(value: 1440 , message:'La durée doit être inférieure à 24 heures')]
     private ?int $duration = null;
+
+    #[ORM\Column(length: 500, nullable: true)]
+    private ?string $imageName = "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg";
 
     public function getId(): ?int
     {
@@ -114,6 +122,18 @@ class Recipe
     public function setDuration(?int $duration): static
     {
         $this->duration = $duration;
+
+        return $this;
+    }
+
+    public function getImageName(): ?string
+    {
+        return $this->imageName;
+    }
+
+    public function setImageName(?string $imageName): static
+    {
+        $this->imageName = $imageName;
 
         return $this;
     }
